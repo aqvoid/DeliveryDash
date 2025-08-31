@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] private float rotateSpeed = 2f;
     [SerializeField] private float moveSpeed = 0.1f;
+    [SerializeField] private float rotateSpeed = 2f;
 
     void Start()
     {
@@ -12,31 +12,30 @@ public class Driver : MonoBehaviour
 
     void Update()
     {
+        float move = 0;
+        float rotate = 0;
+
         if (Keyboard.current.wKey.isPressed)
         {
-            Debug.Log("Pushing Forward");
+            move = 1f;
         }
         
         else if (Keyboard.current.sKey.isPressed)
         {
-            Debug.Log("Pushing Backward");
+            move = -1f;
         }
 
         if (Keyboard.current.dKey.isPressed)
         {
-            Debug.Log("Pushing Right");
+            rotate = -1f;
         }
 
         else if (Keyboard.current.aKey.isPressed)
         {
-            Debug.Log("Pushing Left");
+            rotate = 1f;
         }
-        
 
-
-
-
-        //transform.Rotate(0, 0, 0.1f);
-        //transform.Translate(0, 0.01f, 0);
+        transform.Translate(0, move * moveSpeed, 0);
+        transform.Rotate(0, 0, rotate * rotateSpeed);
     }
 }
