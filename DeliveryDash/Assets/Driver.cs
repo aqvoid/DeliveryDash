@@ -35,7 +35,10 @@ public class Driver : MonoBehaviour
             rotate = 1f;
         }
 
-        transform.Translate(0, move * moveSpeed, 0);
-        transform.Rotate(0, 0, rotate * rotateSpeed);
+        float moveAmount = move * moveSpeed * Time.deltaTime;
+        float rotateAmount = rotate * rotateSpeed * Time.deltaTime;
+
+        transform.Translate(0, moveAmount, 0);
+        transform.Rotate(0, 0, rotateAmount);
     }
 }

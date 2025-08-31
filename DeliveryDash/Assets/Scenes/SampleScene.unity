@@ -370,8 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eaee8dbcf5eac54f9b00aa2a3a590ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
-  moveSpeed: 0.15
-  rotateSpeed: 5
+  moveSpeed: 10
+  rotateSpeed: 300
 --- !u!212 &2072128018
 SpriteRenderer:
   m_ObjectHideFlags: 0
