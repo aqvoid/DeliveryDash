@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Driver : MonoBehaviour
+public class DriverMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 0.1f;
     [SerializeField] private float rotateSpeed = 2f;
