@@ -11,12 +11,14 @@ public class DriverCollision : MonoBehaviour
         {
             Debug.Log("Picked up package");
             hasPackage = true;
+            GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject, delay);
         }
 
         if (collision.CompareTag("Customer") && hasPackage)
         {
             Debug.Log("Delivered Package");
+            GetComponent<ParticleSystem>().Stop();
             hasPackage = false;
         }
     }
