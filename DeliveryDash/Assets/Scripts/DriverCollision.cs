@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class DriverCollision : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Bump");
-    }
+    private bool hasPackage;
+    [SerializeField] [Range(0f, 1f)] private float delay = 0.5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Package"))
+        if (collision.CompareTag("Package") && !hasPackage)
         {
-            Debug.Log("Pickup package");
+            Debug.Log("Picked up package");
+            hasPackage = true;
+            Destroy(collision.gameObject, delay);
         }
 
-        if (collision.CompareTag("Customer"))
+        if (collision.CompareTag("Customer") && hasPackage)
         {
             Debug.Log("Delivered Package");
+            hasPackage = false;
         }
     }
 }
