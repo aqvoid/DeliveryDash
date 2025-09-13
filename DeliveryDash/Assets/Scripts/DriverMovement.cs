@@ -3,16 +3,19 @@ using UnityEngine.InputSystem;
 
 public class DriverMovement : MonoBehaviour
 {
+    private float boostSpeed;
+
+    [Header("Movement")]
     [SerializeField] private float currentSpeed = 0.1f;
     [SerializeField] private float rotateSpeed = 2f;
     [SerializeField] private float regularSpeed = 20f;
     [SerializeField] [Range(1f, 2f)] private float boostMultiplier = 1.5f;
-    private float boostSpeed;
 
     void Awake()
     {
         currentSpeed = regularSpeed;
         boostSpeed = regularSpeed * boostMultiplier;
+        DriverUIManagement.boostText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -53,11 +56,13 @@ public class DriverMovement : MonoBehaviour
         {
             currentSpeed = boostSpeed;
             Destroy(collision.gameObject);
+            DriverUIManagement.boostText.gameObject.SetActive(true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentSpeed = regularSpeed;
+        DriverUIManagement.boostText.gameObject.SetActive(false);
     }
 }
