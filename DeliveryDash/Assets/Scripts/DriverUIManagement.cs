@@ -12,6 +12,7 @@ public class DriverUIManagement : MonoBehaviour
     void Awake()
     {
         boostText = canvasGameObject.GetComponentInChildren<TMP_Text>();
+        boostText.gameObject.SetActive(false);
     }
     
 }

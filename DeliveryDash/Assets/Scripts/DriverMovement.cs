@@ -15,7 +15,6 @@ public class DriverMovement : MonoBehaviour
     {
         currentSpeed = regularSpeed;
         boostSpeed = regularSpeed * boostMultiplier;
-        DriverUIManagement.boostText.gameObject.SetActive(false);
     }
 
     void Update()
