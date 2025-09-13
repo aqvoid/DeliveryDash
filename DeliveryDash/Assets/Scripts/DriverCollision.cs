@@ -20,6 +20,7 @@ public class DriverCollision : MonoBehaviour
             Debug.Log("Delivered Package");
             GetComponent<ParticleSystem>().Stop();
             hasPackage = false;
+            Destroy(collision.gameObject, delay);
         }
     }
 }
