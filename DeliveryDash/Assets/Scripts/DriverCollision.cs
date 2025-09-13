@@ -9,7 +9,6 @@ public class DriverCollision : MonoBehaviour
     {
         if (collision.CompareTag("Package") && !hasPackage)
         {
-            Debug.Log("Picked up package");
             hasPackage = true;
             GetComponent<ParticleSystem>().Play();
             Destroy(collision.gameObject, delay);
@@ -17,7 +16,6 @@ public class DriverCollision : MonoBehaviour
 
         if (collision.CompareTag("Customer") && hasPackage)
         {
-            Debug.Log("Delivered Package");
             GetComponent<ParticleSystem>().Stop();
             hasPackage = false;
             Destroy(collision.gameObject, delay);
