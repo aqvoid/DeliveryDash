@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DriverUIManagement : MonoBehaviour
 {
@@ -29,5 +30,9 @@ public class DriverUIManagement : MonoBehaviour
         victoryWindow.SetActive(currentPackages > 0 ? false : true);
         Time.timeScale = victoryWindow.activeInHierarchy ? 0 : 1;
     }
+
+    public void RestartButton() => SceneManager.LoadScene(0);
+
+    public void QuitButton() => Application.Quit();
 
 }
