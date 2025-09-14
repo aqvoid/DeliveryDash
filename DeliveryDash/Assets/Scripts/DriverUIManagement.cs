@@ -3,25 +3,31 @@ using UnityEngine;
 
 public class DriverUIManagement : MonoBehaviour
 {
-    internal static TMP_Text boostText;
-    
     private int currentPackages;
-    private TMP_Text packagesText;
 
     [Header("UI")]
-    [SerializeField] private GameObject canvasGameObject;
+    [SerializeField] internal TMP_Text boostText;
+    [SerializeField] private TMP_Text packagesText;
+    [SerializeField] private GameObject victoryWindow;
 
-
-    void Awake()
+    private void Awake()
     {
-        packagesText = GameObject.Find("Packages Text").GetComponent<TMP_Text>();
-        boostText = GameObject.Find("Boost Text").GetComponent<TMP_Text>();
-        boostText.gameObject.SetActive(false);
+        ToggleBoostText(false);
     }
 
     private void Update()
     {
         currentPackages = GameObject.FindGameObjectsWithTag("Customer").Length;
         packagesText.text = $"Packages left: {currentPackages}";
+        ToggleVictoryWindow();
     }
+
+    internal void ToggleBoostText(bool toggleText) => boostText.gameObject.SetActive(toggleText);
+
+    private void ToggleVictoryWindow()
+    {
+        victoryWindow.SetActive(currentPackages > 0 ? false : true);
+        Time.timeScale = victoryWindow.activeInHierarchy ? 0 : 1;
+    }
+
 }
