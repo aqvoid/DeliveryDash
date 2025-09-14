@@ -11,6 +11,9 @@ public class DriverMovement : MonoBehaviour
     [SerializeField] private float regularSpeed = 20f;
     [SerializeField] [Range(1f, 2f)] private float boostMultiplier = 1.5f;
 
+    [Header("References")]
+    [SerializeField] private DriverUIManagement driverUIManagement;
+
     void Awake()
     {
         currentSpeed = regularSpeed;
@@ -55,13 +58,13 @@ public class DriverMovement : MonoBehaviour
         {
             currentSpeed = boostSpeed;
             Destroy(collision.gameObject);
-            DriverUIManagement.boostText.gameObject.SetActive(true);
+            driverUIManagement.ToggleBoostText(true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         currentSpeed = regularSpeed;
-        DriverUIManagement.boostText.gameObject.SetActive(false);
+        driverUIManagement.ToggleBoostText(false);
     }
 }
