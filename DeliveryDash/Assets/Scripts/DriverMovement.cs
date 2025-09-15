@@ -3,63 +3,76 @@ using UnityEngine.InputSystem;
 
 public class DriverMovement : MonoBehaviour
 {
-    private float boostSpeed;
+    private Rigidbody2D rb;
+    private Vector2 moveInput;
+
+    private float boostedAcceleration;
+    private float startAcceleration;
 
     [Header("Movement")]
-    [SerializeField] private float currentSpeed = 0.1f;
-    [SerializeField] private float rotateSpeed = 2f;
-    [SerializeField] private float regularSpeed = 20f;
+    [SerializeField] private float acceleration = 5f;
+    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float steering = 200f;
+    [SerializeField] private float friction = 0.95f;
+    
+
     [SerializeField] [Range(1f, 2f)] private float boostMultiplier = 1.5f;
 
     [Header("References")]
     [SerializeField] private DriverUIManagement driverUIManagement;
 
-    void Awake()
+    private void Awake()
     {
-        currentSpeed = regularSpeed;
-        boostSpeed = regularSpeed * boostMultiplier;
+        rb = GetComponent<Rigidbody2D>();
+
+        boostedAcceleration = acceleration * boostMultiplier;
+        startAcceleration = acceleration;
     }
 
-    void Update()
+
+    private void FixedUpdate()
     {
-        float move = 0;
-        float rotate = 0;
+        float move = 0f;
+        float rotate = 0f;
 
         if (Keyboard.current.wKey.isPressed)
         {
             move = 1f;
+            if (Keyboard.current.dKey.isPressed) rotate = 1f;
+            if (Keyboard.current.aKey.isPressed) rotate = -1f;
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            move = -1f;
             if (Keyboard.current.dKey.isPressed) rotate = -1f;
             if (Keyboard.current.aKey.isPressed) rotate = 1f;
         }
 
-        if (Keyboard.current.sKey.isPressed)
-        {
-            move = -1f;
-            if (Keyboard.current.dKey.isPressed) rotate = 1f;
-            if (Keyboard.current.aKey.isPressed) rotate = -1f;
 
-        }
 
-        float moveAmount = move * currentSpeed * Time.deltaTime;
-        float rotateAmount = rotate * rotateSpeed * Time.deltaTime;
 
-        transform.Translate(0, moveAmount, 0);
-        transform.Rotate(0, 0, rotateAmount);
+        rb.AddForce(transform.up * move * acceleration);
+        rb.rotation -= rotate * steering * Time.fixedDeltaTime * (rb.linearVelocity.magnitude / maxSpeed);
+        rb.linearVelocity *= friction;
+
+        if (rb.linearVelocity.magnitude > maxSpeed)
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Boost"))
         {
-            currentSpeed = boostSpeed;
             Destroy(collision.gameObject);
             driverUIManagement.ToggleBoostText(true);
+            acceleration = boostedAcceleration;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        currentSpeed = regularSpeed;
         driverUIManagement.ToggleBoostText(false);
+        acceleration = startAcceleration;
     }
 }
