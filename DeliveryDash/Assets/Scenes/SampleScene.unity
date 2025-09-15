@@ -88130,10 +88130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eaee8dbcf5eac54f9b00aa2a3a590ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
-  acceleration: 5
-  maxSpeed: 15
-  steering: 300
-  friction: 0.98
+  acceleration: 15
+  maxSpeed: 30
+  steering: 600
+  friction: 2
+  brakeForce: 10
+  sideSlipFactor: 0.5
   boostMultiplier: 1.7
   driverUIManagement: {fileID: 2072128025}
 --- !u!4 &2072128019
@@ -88209,10 +88211,10 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.2310638
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -88221,7 +88223,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
