@@ -28,21 +28,16 @@ public class DriverMovement : MonoBehaviour
         if (Keyboard.current.wKey.isPressed)
         {
             move = 1f;
+            if (Keyboard.current.dKey.isPressed) rotate = -1f;
+            if (Keyboard.current.aKey.isPressed) rotate = 1f;
         }
-        
-        else if (Keyboard.current.sKey.isPressed)
+
+        if (Keyboard.current.sKey.isPressed)
         {
             move = -1f;
-        }
+            if (Keyboard.current.dKey.isPressed) rotate = 1f;
+            if (Keyboard.current.aKey.isPressed) rotate = -1f;
 
-        if (Keyboard.current.dKey.isPressed)
-        {
-            rotate = -1f;
-        }
-
-        else if (Keyboard.current.aKey.isPressed)
-        {
-            rotate = 1f;
         }
 
         float moveAmount = move * currentSpeed * Time.deltaTime;
