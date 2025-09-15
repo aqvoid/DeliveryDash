@@ -11,6 +11,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 [Pp]rogram[Ss]ettings/
+[Uu]ser[Ss]ettings/
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
@@ -68,3 +69,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Custom
+*.dwlt
+/DeliveryDash/UserSettings/Layouts
+DeliveryDash/UserSettings/Layouts/default-6000.dwlt
+/DeliveryDash/Assets/TextMesh Pro
