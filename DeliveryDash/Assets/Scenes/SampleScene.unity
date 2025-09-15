@@ -88130,9 +88130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eaee8dbcf5eac54f9b00aa2a3a590ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
-  currentSpeed: 0
-  rotateSpeed: 300
-  regularSpeed: 7
+  acceleration: 5
+  maxSpeed: 15
+  steering: 300
+  friction: 0.98
   boostMultiplier: 1.7
   driverUIManagement: {fileID: 2072128025}
 --- !u!4 &2072128019
