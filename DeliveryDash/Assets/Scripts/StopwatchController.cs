@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Stopwatch : MonoBehaviour
+public class StopwatchController : MonoBehaviour
 {
     private float elapsedTime;
 

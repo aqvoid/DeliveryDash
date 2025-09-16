@@ -37645,6 +37645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 859530417}
   - component: {fileID: 859530419}
+  - component: {fileID: 859530420}
   - component: {fileID: 859530418}
   m_Layer: 5
   m_Name: Victory Window
@@ -37712,6 +37713,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859530416}
   m_CullTransparentMesh: 1
+--- !u!114 &859530420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859530416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3f5acc9db4ab24b9b330fa0e35eb7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VictoryWindowController
 --- !u!1 &863711097
 GameObject:
   m_ObjectHideFlags: 0
@@ -46325,6 +46338,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1034121394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034121396}
+  - component: {fileID: 1034121395}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1034121395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034121394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd4795e97923344aab7440cb0a23d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  packagesScript: {fileID: 1317811811}
+  driverUIManagement: {fileID: 1310384140}
+--- !u!4 &1034121396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034121394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034830661
 GameObject:
   m_ObjectHideFlags: 0
@@ -56895,6 +56954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c927e6cbfa1d44946bf6c0c1ce610c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DriverUIManagement
+  packagesScript: {fileID: 1317811811}
+  packagesText: {fileID: 1317811809}
+  boostScript: {fileID: 1876789738}
+  boostText: {fileID: 1876789736}
+  victoryWindow: {fileID: 859530420}
   stopwatchScript: {fileID: 1324016447}
   stopwatchText: {fileID: 1324016445}
 --- !u!1 &1311973336
@@ -57239,6 +57303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317811808}
   - component: {fileID: 1317811810}
+  - component: {fileID: 1317811811}
   - component: {fileID: 1317811809}
   m_Layer: 5
   m_Name: Packages Text
@@ -57365,6 +57430,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317811807}
   m_CullTransparentMesh: 1
+--- !u!114 &1317811811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317811807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ba2dc9aa3c16544a09dedc32b71b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PackagesController
 --- !u!1 &1320013790
 GameObject:
   m_ObjectHideFlags: 0
@@ -57873,7 +57950,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af4c2447711f5184a981e95aa0651978, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Stopwatch
+  m_EditorClassIdentifier: Assembly-CSharp::StopwatchController
 --- !u!1 &1324588162
 GameObject:
   m_ObjectHideFlags: 0
@@ -79874,6 +79951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876789735}
   - component: {fileID: 1876789737}
+  - component: {fileID: 1876789738}
   - component: {fileID: 1876789736}
   m_Layer: 5
   m_Name: Boost Text
@@ -80000,6 +80078,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876789734}
   m_CullTransparentMesh: 1
+--- !u!114 &1876789738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876789734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541243f782b93f44abea9b6cccf12067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoostController
 --- !u!1 &1877228641
 GameObject:
   m_ObjectHideFlags: 0
@@ -84155,7 +84245,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2072128025}
+      - m_Target: {fileID: 1310384140}
         m_TargetAssemblyTypeName: DriverUIManagement, Assembly-CSharp
         m_MethodName: QuitButton
         m_Mode: 1
@@ -86315,7 +86405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2072128025}
+      - m_Target: {fileID: 1310384140}
         m_TargetAssemblyTypeName: DriverUIManagement, Assembly-CSharp
         m_MethodName: RestartButton
         m_Mode: 1
@@ -88301,7 +88391,7 @@ MonoBehaviour:
   brakeForce: 10
   sideSlipFactor: 0.5
   boostMultiplier: 1.7
-  driverUIManagement: {fileID: 2072128025}
+  driverUIManagement: {fileID: 1310384140}
 --- !u!4 &2072128019
 Transform:
   m_ObjectHideFlags: 0
@@ -93207,21 +93297,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &2072128025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072128016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c927e6cbfa1d44946bf6c0c1ce610c8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DriverUIManagement
-  boostText: {fileID: 1876789736}
-  packagesText: {fileID: 1317811809}
-  victoryWindow: {fileID: 859530416}
 --- !u!1 &2074603059
 GameObject:
   m_ObjectHideFlags: 0
@@ -95919,3 +95994,4 @@ SceneRoots:
   - {fileID: 777871569}
   - {fileID: 1310384139}
   - {fileID: 2125321169}
+  - {fileID: 1034121396}
