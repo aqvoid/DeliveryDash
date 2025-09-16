@@ -8,7 +8,8 @@
 
 ## Features I added:
 - Realistic steering with physics
-#### Work In Progress
+#### Work In Progress:
+- Stopwatch and last personal record
 - Victory menu & results
 - Randomly generated positions where Customers & Items can spawn
 
