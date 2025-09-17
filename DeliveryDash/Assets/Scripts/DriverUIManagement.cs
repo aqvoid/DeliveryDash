@@ -17,26 +17,34 @@ public class DriverUIManagement : MonoBehaviour
     [SerializeField] private VictoryWindowController victoryWindow;
 
     [Header("=== Stopwatch ===")]
-
     [SerializeField] private StopwatchController stopwatchScript;
     [SerializeField] private TMP_Text stopwatchText;
 
+    [Header("=== Game Menu Texts ===")]
+    [SerializeField] private GameObject[] gameMenuTexts;
 
-    void Awake() => ToggleBoostText(false);
+    [Header("=== Game Manager ===")]
+    [SerializeField] private GameManager gameManager;
+
+
+    void Start() => ToggleBoostText(false);
     
     private void Update()
     {
         ChangeStopwatchText(stopwatchScript.ElapsedTime);
         ChangePackagesText(packagesScript.CurrentPackages);
 
-        ToggleVictoryWindow();
+        ToggleVictoryWindow(gameManager.GameWon);
+        ToggleUIElements(!gameManager.GameWon);
     }
 
-    private void ToggleVictoryWindow()
+    private void ToggleVictoryWindow(bool state) => victoryWindow.gameObject.SetActive(state);
+
+    private void ToggleUIElements(bool state)
     {
-        victoryWindow.gameObject.SetActive(packagesScript.CurrentPackages <= 0);
-        Time.timeScale = victoryWindow.gameObject.activeInHierarchy ? 0 : 1;
+        foreach (GameObject gameObject in gameMenuTexts) gameObject.SetActive(state);
     }
+
     private void ChangeStopwatchText(float time)
     {
         int minutes = Mathf.FloorToInt(time / 60f);
@@ -54,5 +62,4 @@ public class DriverUIManagement : MonoBehaviour
     public void QuitButton() => Application.Quit();
 
     public void ShowVictory() => victoryWindow.Show();
-    public void HideVictory() => victoryWindow.Hide();
 }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     private bool gameWon = false;
 
+    public bool GameWon { get => gameWon; private set => gameWon = value; }
+
     private void Update()
     {
         if (!gameWon && packagesScript.CurrentPackages <= 0) WinGame();
