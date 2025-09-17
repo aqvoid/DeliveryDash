@@ -2,17 +2,14 @@ using UnityEngine;
 
 public class PackagesController : MonoBehaviour
 {
-    private int currentPackages;
-
     public int InitialPackages { get; private set; }
-    public int CurrentPackages { get => currentPackages; private set => currentPackages = value; }
+    public int CurrentPackages { get; private set; }
 
     private void Start()
     {
-        UpdatePackagesCount();
-        InitialPackages = currentPackages;
+        CurrentPackages = GameObject.FindGameObjectsWithTag("Customer").Length;
+        InitialPackages = CurrentPackages;
     }
-    private void Update() => UpdatePackagesCount();
 
-    private void UpdatePackagesCount() => currentPackages = GameObject.FindGameObjectsWithTag("Customer").Length;
+    public void RemoveCustomer() => CurrentPackages--;
 }

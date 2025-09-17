@@ -46660,7 +46660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd4795e97923344aab7440cb0a23d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  packagesScript: {fileID: 0}
+  packagesScript: {fileID: 777871570}
   driverUIManagement: {fileID: 1310384140}
 --- !u!4 &1034121396
 Transform:
