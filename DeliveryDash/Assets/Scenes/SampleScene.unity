@@ -46367,7 +46367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd4795e97923344aab7440cb0a23d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  packagesScript: {fileID: 1317811811}
+  packagesScript: {fileID: 2072128026}
   driverUIManagement: {fileID: 1310384140}
 --- !u!4 &1034121396
 Transform:
@@ -56849,6 +56849,7 @@ GameObject:
   - component: {fileID: 1310384137}
   - component: {fileID: 1310384136}
   - component: {fileID: 1310384140}
+  - component: {fileID: 1310384141}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -56931,9 +56932,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 859530417}
   - {fileID: 1876789735}
   - {fileID: 1317811808}
-  - {fileID: 859530417}
   - {fileID: 1324016444}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56954,13 +56955,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c927e6cbfa1d44946bf6c0c1ce610c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DriverUIManagement
-  packagesScript: {fileID: 1317811811}
+  packagesScript: {fileID: 2072128026}
   packagesText: {fileID: 1317811809}
-  boostScript: {fileID: 1876789738}
+  boostScript: {fileID: 2072128025}
   boostText: {fileID: 1876789736}
   victoryWindow: {fileID: 859530420}
-  stopwatchScript: {fileID: 1324016447}
+  stopwatchScript: {fileID: 1310384141}
   stopwatchText: {fileID: 1324016445}
+--- !u!114 &1310384141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310384135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4c2447711f5184a981e95aa0651978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopwatchController
 --- !u!1 &1311973336
 GameObject:
   m_ObjectHideFlags: 0
@@ -57303,7 +57316,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1317811808}
   - component: {fileID: 1317811810}
-  - component: {fileID: 1317811811}
   - component: {fileID: 1317811809}
   m_Layer: 5
   m_Name: Packages Text
@@ -57430,18 +57442,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317811807}
   m_CullTransparentMesh: 1
---- !u!114 &1317811811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317811807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ba2dc9aa3c16544a09dedc32b71b31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PackagesController
 --- !u!1 &1320013790
 GameObject:
   m_ObjectHideFlags: 0
@@ -57812,7 +57812,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1324016444}
   - component: {fileID: 1324016446}
-  - component: {fileID: 1324016447}
   - component: {fileID: 1324016445}
   m_Layer: 5
   m_Name: Stopwatch Text
@@ -57939,18 +57938,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324016443}
   m_CullTransparentMesh: 1
---- !u!114 &1324016447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324016443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4c2447711f5184a981e95aa0651978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StopwatchController
 --- !u!1 &1324588162
 GameObject:
   m_ObjectHideFlags: 0
@@ -79951,7 +79938,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1876789735}
   - component: {fileID: 1876789737}
-  - component: {fileID: 1876789738}
   - component: {fileID: 1876789736}
   m_Layer: 5
   m_Name: Boost Text
@@ -80078,18 +80064,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876789734}
   m_CullTransparentMesh: 1
---- !u!114 &1876789738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876789734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 541243f782b93f44abea9b6cccf12067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BoostController
 --- !u!1 &1877228641
 GameObject:
   m_ObjectHideFlags: 0
@@ -88361,10 +88335,12 @@ GameObject:
   - component: {fileID: 2072128019}
   - component: {fileID: 2072128021}
   - component: {fileID: 2072128020}
+  - component: {fileID: 2072128024}
   - component: {fileID: 2072128017}
   - component: {fileID: 2072128022}
-  - component: {fileID: 2072128024}
   - component: {fileID: 2072128023}
+  - component: {fileID: 2072128025}
+  - component: {fileID: 2072128026}
   m_Layer: 0
   m_Name: Eatty McDash
   m_TagString: Untagged
@@ -88384,14 +88360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eaee8dbcf5eac54f9b00aa2a3a590ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
-  acceleration: 15
+  baseAcceleration: 15
   maxSpeed: 30
   steering: 600
   friction: 2
-  brakeForce: 10
   sideSlipFactor: 0.5
-  boostMultiplier: 1.7
-  driverUIManagement: {fileID: 1310384140}
+  boostController: {fileID: 2072128025}
 --- !u!4 &2072128019
 Transform:
   m_ObjectHideFlags: 0
@@ -88493,7 +88467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 839a34d0f0f66394fa8fdef96b67c922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DriverCollision
-  delay: 0.1
+  driverUIManagement: {fileID: 1310384140}
+  driverMovement: {fileID: 2072128017}
+  boostController: {fileID: 2072128025}
 --- !u!199 &2072128023
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -93297,6 +93273,32 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &2072128025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072128016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541243f782b93f44abea9b6cccf12067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoostController
+  boostMultiplier: 1.5
+  driverMovement: {fileID: 2072128017}
+--- !u!114 &2072128026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072128016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ba2dc9aa3c16544a09dedc32b71b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PackagesController
 --- !u!1 &2074603059
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,16 +1,15 @@
+using Unity.Collections;
 using UnityEngine;
 
 public class BoostController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("=== Acceleration Settings ===")]
+    [SerializeField, Range(1f, 2f)] private float boostMultiplier = 1.5f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("=== References ===")]
+    [SerializeField] private DriverMovement driverMovement;
+
+    public void ActivateBoost() => driverMovement.SetAcceleration(driverMovement.Acceleration * boostMultiplier);
+
+    public void DeactivateBoost() => driverMovement.ResetAcceleration();
 }

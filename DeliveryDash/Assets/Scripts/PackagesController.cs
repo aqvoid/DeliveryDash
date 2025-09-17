@@ -6,8 +6,5 @@ public class PackagesController : MonoBehaviour
 
     public int CurrentPackages { get => currentPackages; private set => currentPackages = value; } 
 
-    void Update()
-    {
-        CurrentPackages = GameObject.FindGameObjectsWithTag("Customer").Length;
-    }
+    void Update() => CurrentPackages = GameObject.FindGameObjectsWithTag("Customer").Length;
 }

@@ -9,10 +9,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!gameWon && packagesScript.CurrentPackages <= 0)
-        {
-            WinGame();
-        }
+        if (!gameWon && packagesScript.CurrentPackages <= 0) WinGame();
     }
 
     private void WinGame()

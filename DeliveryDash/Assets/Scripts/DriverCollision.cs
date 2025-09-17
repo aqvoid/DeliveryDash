@@ -3,7 +3,9 @@ using UnityEngine;
 public class DriverCollision : MonoBehaviour
 {
     private bool hasPackage;
-    [SerializeField] [Range(0f, 1f)] private float delay = 0.5f;
+
+    [SerializeField] private DriverUIManagement driverUIManagement;
+    [SerializeField] private BoostController boostController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -11,14 +13,27 @@ public class DriverCollision : MonoBehaviour
         {
             hasPackage = true;
             GetComponent<ParticleSystem>().Play();
-            Destroy(collision.gameObject, delay);
+            Destroy(collision.gameObject);
         }
 
         if (collision.CompareTag("Customer") && hasPackage)
         {
-            GetComponent<ParticleSystem>().Stop();
             hasPackage = false;
-            Destroy(collision.gameObject, delay);
+            GetComponent<ParticleSystem>().Stop();
+            Destroy(collision.gameObject);
         }
+
+        if (collision.CompareTag("Boost"))
+        {
+            driverUIManagement.ToggleBoostText(true);
+            boostController.ActivateBoost();
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        driverUIManagement.ToggleBoostText(false);
+        boostController.DeactivateBoost();
     }
 }

@@ -22,10 +22,7 @@ public class DriverUIManagement : MonoBehaviour
     [SerializeField] private TMP_Text stopwatchText;
 
 
-    void Awake()
-    {
-        ToggleBoostText(false);
-    }
+    void Awake() => ToggleBoostText(false);
     
     private void Update()
     {
@@ -34,9 +31,10 @@ public class DriverUIManagement : MonoBehaviour
 
         ToggleVictoryWindow();
     }
+
     private void ToggleVictoryWindow()
     {
-        victoryWindow.gameObject.SetActive(packagesScript.CurrentPackages > 0 ? false : true);
+        victoryWindow.gameObject.SetActive(packagesScript.CurrentPackages <= 0);
         Time.timeScale = victoryWindow.gameObject.activeInHierarchy ? 0 : 1;
     }
     private void ChangeStopwatchText(float time)
@@ -48,12 +46,10 @@ public class DriverUIManagement : MonoBehaviour
         stopwatchText.text = "Time passed: " + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 
-    private void ChangePackagesText(int packagesCount)
-    {
-        packagesText.text = $"Packages left: {packagesCount}";
-    }
+    private void ChangePackagesText(int packagesCount) => packagesText.text = $"Packages left: {packagesCount}";
     
     public void ToggleBoostText(bool state) => boostText.gameObject.SetActive(state);
+
     public void RestartButton() => SceneManager.LoadScene(0);
     public void QuitButton() => Application.Quit();
 
