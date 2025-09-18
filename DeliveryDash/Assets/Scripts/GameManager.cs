@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public bool GameWon { get; private set; }
 
+    private void Awake() => Time.timeScale = 1;
     private void Update()
     {
         if (!GameWon && packagesScript.CurrentPackages <= 0) WinGame();

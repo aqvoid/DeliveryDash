@@ -24,9 +24,6 @@ public class DriverMovement : MonoBehaviour
     [SerializeField] private float friction = 2f;
     [SerializeField, Range(0f, 1f)] private float sideSlipFactor = 0.5f; // 0 - no side slip, 1 - full side slip
 
-    [Header("=== References ===")]
-    [SerializeField] private BoostController boostController;
-
     public float Acceleration { get => baseAcceleration; private set => baseAcceleration = value; }
 
 
