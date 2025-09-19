@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    private void OnDestroy()
+    private PackagesController packagesController;
+
+    private void Awake()
     {
-        FindFirstObjectByType<PackagesController>()?.RemoveCustomer();
+        packagesController = GetComponentInParent<PackagesController>();
+        packagesController?.AddCustomer();
     }
+    private void OnDestroy() => packagesController?.RemoveCustomer();
 }
