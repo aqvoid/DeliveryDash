@@ -1,6 +1,6 @@
 # DeliveryDash
 #### A small Unity 2D top-down game where you drive a car to pick up packages and deliver them to customers. Navigate through obstacles and use boosts to complete deliveries faster!
-###### Created and upgraded by aqvoidDev(me) while following a Complete C# Unity 2D Game Development from GameDev.tv(On Udemy)[https://www.udemy.com/course/unitycourse].
+###### Created and upgraded by aqvoidDev/AlthesDev(me) while following a Complete C# Unity 2D Game Development from GameDev.tv(On Udemy)[https://www.udemy.com/course/unitycourse].
 
 ## How to Play
 
@@ -25,7 +25,7 @@
 - Procedurally placed customers, packages and boosters
 
 ## How to run:
-1. Install the latest build DeliveryDash_vX.X.zip from Releases [https://github.com/aqvoid/DeliveryDash/releases]
+1. Install the latest build DeliveryDash_vX.X.zip from Releases [https://github.com/AlthesDev/DeliveryDash/releases]
 2. Unzip the archive
 3. Run DeliveryDash.exe (Windows)
 
